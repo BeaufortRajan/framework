@@ -1,0 +1,17 @@
+{
+    "name": "utilisateur/framework",
+    "description": "Création d'un framework fait maison à but d'apprentissage de la programmation orientée objet en php",
+    "autoload": {
+        "psr-4": {
+            "Utilisateur\\Framework\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rajan",
+            "email": "beaufort23@hotmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
