@@ -1,21 +1,48 @@
 <?php
 namespace App\Z\Routing;
 
-Interface RouterInterface
-{
-    /**
-     * cette méthodedu Router recupere les controleurs et les trie et le sauvgarde dans l'armoire à routes en fonction de leur nom
-     */
-  public function sortRoutesByName():void ;
-}
-/**
-         * Cette méthode du routeur permet de l'exécuter
+    Interface RouteInterface
+    {
+
+        /**
+         * Cette méthode permet de récupérer l'uri de la route
          * 
-         * Et elle nous retourne une réponse qui peut être : 
-         *      - nulle si l'uri de l'url ne match pas avec l'uri de la route 
-         *        dont l'application attend la réception
-         *      - ou un tableau contenant le contrôleur censé gérer la requête si ça match 
+         * L'uri de la route, c'est le chemin (path) de la route dont l'application attend la réception
          *
-         * @return array|null
+         * @return string
          */
-        public function run() : ?array;
+        public function getPath() : string;
+
+
+        /**
+         * Cette méthode permet de récupérer le nom de la route
+         *
+         * @return string
+         */
+        public function getName() : string;
+
+
+        /**
+         * Cette méthode permet de récupérer les méthodes ou verbes
+         * avec lesquels l'on peut accéder à la route 
+         *
+         * @return array
+         */
+        public function getMethods() : array;
+
+
+        /**
+         * Cette méthode vérifie si l'url de la route contient des paramètres
+         */
+        public function hasParams() : bool;
+
+
+        /**
+         * Cette méthode récupère dans la clé du tableau des paramètres,
+         * leur nom
+         *
+         * @return array
+         */
+        public function fetchParams() : array;
+        
+    }
